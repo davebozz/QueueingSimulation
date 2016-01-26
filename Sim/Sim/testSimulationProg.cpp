@@ -65,9 +65,22 @@ void runSimulation()
     srand(time(NULL));
     int random = 0;
     int custNum = 0;
+
+    serverListType serverList(numOfServers);
     
     // Need new random every clock tick
+    // Update server list -- decrement busy server transaction time
+    // If customer queue is nonempty, increment waiting time of each waiting customer
+    // If customer arrives, increment number of customers and add new customer
+    // If server is free and waitqueue is nonempty, remove customer
+    //	from front of queue and send to free server
     for (int clock = 1; clock <= sTime; clock++){
+
+    	//update server list
+    	serverList.updateServers();
+
+	//increment waiting time of waiting customers
+	
         random = rand() % tBetweenCArrival;
         if (!random) {
             //add customer
