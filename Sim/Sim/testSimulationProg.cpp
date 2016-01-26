@@ -82,7 +82,7 @@ void runSimulation()
     for (int clock = 1; clock <= sTime; clock++){
 
     	//update server list
-    	serverList.updateServers();
+    	serverList.updateServers(cout);
 
 	//increment waiting time of waiting customers
 	customerQueue.updateWaitingQueue();
