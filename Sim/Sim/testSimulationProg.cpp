@@ -98,10 +98,9 @@ void runSimulation()
         }
         //if server is free and queue nonempty, pair customer with server
         if (serverList.getFreeServerID() != -1 ) {
-            /*if (customerQueue.front().getCustomerNumber() != -1) {
+            if (customerQueue.front().getCustomerNumber() != -1) {
                 serverList.setServerBusy(serverList.getFreeServerID(), customer, transTime);
-            }*/
-            cout << "Hey";
+            }
         }
     }
 
