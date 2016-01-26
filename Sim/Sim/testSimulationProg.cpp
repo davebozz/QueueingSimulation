@@ -66,13 +66,14 @@ void runSimulation()
     int random = 0;
     int custNum = 0;
     
+    customerType customer;
+
     // Need new random every clock tick
     for (int clock = 1; clock <= sTime; clock++){
         random = rand() % tBetweenCArrival;
         if (!random) {
             //add customer
             custNum++;
-            customerType customer;
             customer.setCustomerInfo(custNum, clock, 0, transTime);
             
         }
