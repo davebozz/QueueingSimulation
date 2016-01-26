@@ -68,6 +68,8 @@ void runSimulation()
 
     serverListType serverList(numOfServers);
     
+    customerType customer;
+
     // Need new random every clock tick
     // Update server list -- decrement busy server transaction time
     // If customer queue is nonempty, increment waiting time of each waiting customer
@@ -85,7 +87,6 @@ void runSimulation()
         if (!random) {
             //add customer
             custNum++;
-            customerType customer;
             customer.setCustomerInfo(custNum, clock, 0, transTime);
             
         }
