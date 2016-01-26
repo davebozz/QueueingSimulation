@@ -30,3 +30,7 @@ waitingCustomerQueueType(Queue List)
 	* Fill out runSimulation Method
 	* Setup main loop with time(Page 1208)
 	* Test, Test, Test!
+<<<<<<< HEAD
+=======
+	THIS IS A TEST.
+>>>>>>> 25b2263a19cbeffa70af78ef0b41a7f376a205b5
