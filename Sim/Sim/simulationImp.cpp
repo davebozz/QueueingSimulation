@@ -241,6 +241,9 @@ waitingCustomerQueueType::waitingCustomerQueueType(int size)
 {
 }
 
+//Creating dummy customer with -1 in order to figure out where queue ends & begins
+//inserting dummy customer @ -1, when -1 hit again, do not process customer
+//Now queue full & ready
 void waitingCustomerQueueType::updateWaitingQueue()
 {
     customerType cust;
@@ -249,7 +252,7 @@ void waitingCustomerQueueType::updateWaitingQueue()
     int wTime = 0;
 	
 	addQueue(cust);
-
+//Doesn't process -1 customer
     while (wTime != -1)
     {
         cust = front();

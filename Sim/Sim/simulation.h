@@ -202,7 +202,8 @@ private:
 
 
 //**************** waitQueue  *************
-
+//Deriving queueType, only need operationg of incremeting wait time
+//for each customer in the queue
 class waitingCustomerQueueType: public queueType<customerType>
 {
 public:
