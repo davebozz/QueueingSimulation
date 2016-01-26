@@ -72,12 +72,8 @@ void runSimulation()
     waitingCustomerQueueType customerQueue;
 
     customerType customer;
+
     // Need new random every clock tick
-    // Update server list -- decrement busy server transaction time
-    // If customer queue is nonempty, increment waiting time of each waiting customer
-    // If customer arrives, increment number of customers and add new customer
-    // If server is free and waitqueue is nonempty, remove customer
-    //	from front of queue and send to free server
     for (int clock = 1; clock <= sTime; clock++){
 
     	//update server list & decrements
@@ -94,7 +90,7 @@ void runSimulation()
             //Create Customer
             customer.setCustomerInfo(custNum, clock, 0, transTime);
             customerQueue.addQueue(customer);
-            
+
         }
         //if server is free and queue nonempty, pair customer with server
         if (serverList.getFreeServerID() != -1 ) {
@@ -103,6 +99,13 @@ void runSimulation()
             }
         }
     }
+
+    cout << endl << "Simulation Completed.\n"
+    	 << "Simulation time: " << sTime << endl
+	 << "Number of servers: " << numOfServers << endl
+	 << "transaction time: " << transTime << endl
+	 << "tBetweenCArrival" << tBetweenCArrival << endl;
+    //display total waiting time and average waiting time
 
 }
 
