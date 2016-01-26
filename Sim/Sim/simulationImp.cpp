@@ -1,5 +1,3 @@
-
- 
 #include <iostream>
 #include <string>
 #include <cstdlib>
@@ -264,4 +262,15 @@ void waitingCustomerQueueType::updateWaitingQueue()
         cust.incrementWaitingTime();
         addQueue(cust);
 	}
+}
+
+int waitingCustomerQueueType::queueWaitTime(int& waitTime)
+{
+    int numQueuedCustomers = 0;
+    while (!isEmptyQueue() && front().getCustomerNumber() != -1){
+        numQueuedCustomers++;
+        waitTime += front().getWaitingTime();
+        deleteQueue();
+    }
+    return numQueuedCustomers;
 }

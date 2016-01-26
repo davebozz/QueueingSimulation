@@ -1,4 +1,20 @@
- 
+/*
+ * Group: D.J. Bozentka, Johnathan Sekel, Matthew Carnaghi
+ * Date: January 26, 2016
+ * Class: 3710-01
+ * Location: Zip File(Under: Sim Folder)
+ * Statement: The program takes user input for simulation time, 
+ *    number of servers, transaction time, and time b/w customer
+ *    arrival. Outputs businesses stats related to the amount
+ *    of customers dealing with total number of servers to help
+ *    client understand how much servers should have on staff
+ *    that is economically helpful. 
+ *   
+ *    Added new function(queueWaitTime) which takes waitTime
+ *      by reference and returns amount of customers still
+ *      in queue & simulation & their total wait times. 
+ *
+ */
 #include <fstream>
 #include <string>
 #include "queueAsArray.h"
@@ -216,5 +232,12 @@ public:
     void updateWaitingQueue();
       //Function to increment the waiting time of each 
       //customer in the queue by one time unit.
+    
+    int queueWaitTime(int& waitTime);
+      //Function to find total waiting time of customers still in queue
+      //precondition: queue contains or does not contain elements
+      //postcondition: waittime now has total waiting time of customers in queue as well
+    
 };
+
 

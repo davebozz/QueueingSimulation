@@ -72,6 +72,8 @@ void runSimulation()
     waitingCustomerQueueType customerQueue;
 
     customerType customer;
+    
+    int waitTime = 0;
 
     // Need new random every clock tick
     for (int clock = 1; clock <= sTime; clock++){
@@ -95,16 +97,30 @@ void runSimulation()
         //if server is free and queue nonempty, pair customer with server
         if (serverList.getFreeServerID()!= -1 && !customerQueue.isEmptyQueue()){
             if (customerQueue.front().getCustomerNumber() != -1) {
+                waitTime += customer.getWaitingTime();
                 serverList.setServerBusy(serverList.getFreeServerID(), customer, transTime);
                 customerQueue.deleteQueue();
             }
         }
         
     }
+    
+    //iterate through customer queue to find remaining wait times
+    int numQueuedCustomers = customerQueue.queueWaitTime(waitTime);
+
+    int transactingCustomers = serverList.getNumberOfBusyServers();
+    int finishedCustomers = custNum-transactingCustomers-numQueuedCustomers;
+    
     cout    << endl << "Simulation Completed.\n"
             << "Simulation time: " << sTime << endl
             << "Number of servers: " << numOfServers << endl
             << "transaction time: " << transTime << endl
-            << "tBetweenCArrival: " << tBetweenCArrival << endl;
+            << "Time between customer arrivals: " << tBetweenCArrival << endl
+            << "Total Wait Time: "  << waitTime << endl
+            << "Total Customers: "  << custNum << endl
+            << "Average Wait Time: " << (float)waitTime/custNum << endl
+            << "Customers still in queue: " << numQueuedCustomers << endl
+            << "Customers still in transaction: " << transactingCustomers << endl
+            << "Customers who finished receiving service: " << finishedCustomers << endl;
             //display total waiting time and average waiting time
 }

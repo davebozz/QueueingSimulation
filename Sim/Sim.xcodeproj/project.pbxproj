@@ -31,7 +31,6 @@
 		220F3B9E1C56F3790067E0E1 /* simulation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = simulation.h; sourceTree = "<group>"; };
 		220F3B9F1C56F3790067E0E1 /* simulationImp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = simulationImp.cpp; sourceTree = "<group>"; };
 		220F3BA01C56F3790067E0E1 /* testSimulationProg.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = testSimulationProg.cpp; sourceTree = "<group>"; };
-		220F3BA31C56F7970067E0E1 /* Review */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Review; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,7 +67,6 @@
 				220F3B9C1C56F3790067E0E1 /* queueADT.h */,
 				220F3B9D1C56F3790067E0E1 /* queueAsArray.h */,
 				220F3B9E1C56F3790067E0E1 /* simulation.h */,
-				220F3BA31C56F7970067E0E1 /* Review */,
 				220F3B9F1C56F3790067E0E1 /* simulationImp.cpp */,
 				220F3BA01C56F3790067E0E1 /* testSimulationProg.cpp */,
 			);
@@ -251,6 +249,7 @@
 				220F3B9A1C56F31A0067E0E1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

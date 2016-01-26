@@ -167,6 +167,7 @@ queueType<Type>::queueType(int queueSize)
 template <class Type>
 queueType<Type>::~queueType()   
 {
+    
     delete [] list;
 } //end destructor
 
