@@ -72,13 +72,12 @@ void runSimulation()
         if (!random) {
             //add customer
             custNum++;
-            customerType.setCustommerInfo(custNum, clock, 0, 0);
-            serverType
+            customerType customer;
+            customer.setCustomerInfo(custNum, clock, 0, transTime);
             
         }
         
     }
     
-
 
 }
