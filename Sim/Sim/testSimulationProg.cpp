@@ -101,7 +101,7 @@ void runSimulation()
             /*if (customerQueue.front().getCustomerNumber() != -1) {
                 serverList.setServerBusy(serverList.getFreeServerID(), customer, transTime);
             }*/
-            cout << "Hey";
+            
         }
     }
 
