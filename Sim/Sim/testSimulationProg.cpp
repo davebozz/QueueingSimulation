@@ -66,6 +66,11 @@ void runSimulation()
     int random = 0;
     int custNum = 0;
     
+    //Customer Queue
+    waitingCustomerQueueType customerQueue;
+    
+    
+    
     // Need new random every clock tick
     for (int clock = 1; clock <= sTime; clock++){
         random = rand() % tBetweenCArrival;
@@ -79,5 +84,4 @@ void runSimulation()
         
     }
     
-
 }
