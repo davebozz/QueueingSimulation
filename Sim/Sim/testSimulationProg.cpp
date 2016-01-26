@@ -1,9 +1,7 @@
- 
 #include <iostream>
 #include <cstdlib>
 #include <iomanip>
-#include <stdlib>
-#include <time>
+#include <ctime>
 
 #include "simulation.h"
 #include "queueAsArray.h" 
