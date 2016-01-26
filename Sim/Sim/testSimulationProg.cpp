@@ -68,6 +68,9 @@ void runSimulation()
 
     serverListType serverList(numOfServers);
     
+    //Customer Queue
+    waitingCustomerQueueType customerQueue;
+
     customerType customer;
 
     // Need new random every clock tick
@@ -82,7 +85,9 @@ void runSimulation()
     	serverList.updateServers();
 
 	//increment waiting time of waiting customers
-	
+	customerQueue.updateWaitingQueue();
+
+	//if customer arrives, increment numcustomers and add customer	
         random = rand() % tBetweenCArrival;
         if (!random) {
             //add customer
@@ -90,6 +95,8 @@ void runSimulation()
             customer.setCustomerInfo(custNum, clock, 0, transTime);
             
         }
+
+	//if server is free and queue nonempty, pair customer with server
         
     }
     
