@@ -1,0 +1,7 @@
+
+
+Simulation.h Holds:
+    * Customer Type
+    * Server Type
+    * Server List Type
+    * waiting Customer Queue Type

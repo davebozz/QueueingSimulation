@@ -1,7 +1,7 @@
  
 #include <iostream>
 #include <cstdlib>
-#include <iomanip> 
+#include <iomanip>
 
 #include "simulation.h"
 #include "queueAsArray.h" 
@@ -20,7 +20,13 @@ int main()
 
     return 0;
 }
+//--------------------------- Main Ends -----------------------------------
+/*
+ * Functions Begin
+ *
+ */
 
+//Sets Sim Params
 void setSimulationParameters(int& sTime, int& numOfServers,
 							 int& transTime,
 							 int& tBetweenCArrival)
@@ -42,9 +48,12 @@ void setSimulationParameters(int& sTime, int& numOfServers,
     cout << endl;
 }
 
+//Runs Simulation
 void runSimulation()
 {
-    cout << "Write the definition of the function runSimulation." << endl;
-    cout << "See programming Exercise 18." << endl;
-}
+    
+ int sTime, numOfServers, transTime, tBetweenCArrival = 0;
+ 
+ setSimulationParameters(sTime, numOfServers, transTime, tBetweenCArrival);
 
+ }
