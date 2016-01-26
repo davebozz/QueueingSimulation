@@ -80,25 +80,30 @@ void runSimulation()
     //	from front of queue and send to free server
     for (int clock = 1; clock <= sTime; clock++){
 
-    	//update server list
+    	//update server list & decrements
     	serverList.updateServers(cout);
+        
+        //customer queue update
+        customerQueue.updateWaitingQueue();
 
-	//increment waiting time of waiting customers
-	customerQueue.updateWaitingQueue();
-
-	//if customer arrives, increment numcustomers and add customer	
+        //if customer arrives, increment numcustomers and add customer
         random = rand() % tBetweenCArrival;
-        if (!random) {
-            //add customer
-            custNum++;
+        if (!random) { //New Customer Arrived if 0
+            
+            custNum++; //incremented customer by 1
+            //Create Customer
             customer.setCustomerInfo(custNum, clock, 0, transTime);
+            customerQueue.addQueue(customer);
             
         }
-
-	//if server is free and queue nonempty, pair customer with server
-        
+        //if server is free and queue nonempty, pair customer with server
+        if (serverList.getFreeServerID() != -1 ) {
+            /*if (customerQueue.front().getCustomerNumber() != -1) {
+                serverList.setServerBusy(serverList.getFreeServerID(), customer, transTime);
+            }*/
+            cout << "Hey";
+        }
     }
-    
 
 }
 
