@@ -2,6 +2,8 @@
 #include <iostream>
 #include <cstdlib>
 #include <iomanip>
+#include <stdlib>
+#include <time>
 
 #include "simulation.h"
 #include "queueAsArray.h" 
@@ -51,9 +53,34 @@ void setSimulationParameters(int& sTime, int& numOfServers,
 //Runs Simulation
 void runSimulation()
 {
-    
- int sTime, numOfServers, transTime, tBetweenCArrival = 0;
+    /*
+     * sTime = Simluation Time
+     * numOfServers = Total Number of Servers
+     * transtime = Transaction Time
+     * tBetweenCArrival = Time b/w customer arrival
+     *
+     */
+    int sTime, numOfServers, transTime, tBetweenCArrival = 0;
  
- setSimulationParameters(sTime, numOfServers, transTime, tBetweenCArrival);
+    setSimulationParameters(sTime, numOfServers, transTime, tBetweenCArrival);
+    
+    srand(time(NULL));
+    int random = 0;
+    int custNum = 0;
+    
+    // Need new random every clock tick
+    for (int clock = 1; clock <= sTime; clock++){
+        random = rand() % tBetweenCArrival;
+        if (!random) {
+            //add customer
+            custNum++;
+            customerType.setCustommerInfo(custNum, clock, 0, 0);
+            serverType
+            
+        }
+        
+    }
+    
 
- }
+
+}
