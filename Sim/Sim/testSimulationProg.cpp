@@ -2,6 +2,7 @@
 #include <cstdlib>
 #include <iomanip>
 #include <ctime>
+#include <cmath>
 
 #include "simulation.h"
 #include "queueAsArray.h" 
@@ -64,9 +65,9 @@ void runSimulation()
     
     srand(7654321);
     double random = 0;
-    double cutOff = ((double) 1) / tBetweenCArrival;
+    double lambda = ((double) 1) / tBetweenCArrival;
     int custNum = 0;
-
+    double cutOff=exp(-1*lambda);
     serverListType serverList(numOfServers);
     
     //Customer Queue
@@ -88,7 +89,7 @@ void runSimulation()
         //if customer arrives, increment numcustomers and add customer
         random = (double)rand() / RAND_MAX;
         
-        if (random <= cutOff) { //New Customer Arrived if 0
+        if (random > cutOff) { //New Customer Arrived if 0
             
             custNum++; //incremented customer by 1
             //Create Customer
@@ -106,12 +107,13 @@ void runSimulation()
         }
         
     }
-    
+    customerQueue.updateWaitingQueue();
     //iterate through customer queue to find remaining wait times
-    int numQueuedCustomers = customerQueue.queueWaitTime(waitTime);
+    int numQueuedCustomers = customerQueue.getNumInQueue();//customerQueue.queueWaitTime(waitTime);
 
     int transactingCustomers = serverList.getNumberOfBusyServers();
     int finishedCustomers = custNum-transactingCustomers-numQueuedCustomers;
+    waitTime=customerQueue.getWaitTime();
     
     cout    << endl
             << "========= Info ========="
@@ -138,7 +140,8 @@ void runSimulation()
             << endl
             << "Customers who finished receiving service: " << finishedCustomers
             << endl
-            << "============ Fin ============";
+            << "============ Fin ============"
+            << endl;
             //display total waiting time and average waiting time
             //More servers than transaction time, no backlog in queue
 }

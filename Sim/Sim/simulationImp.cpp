@@ -233,7 +233,7 @@ waitingCustomerQueueType::waitingCustomerQueueType(int size)
 //Now queue full & ready
 void waitingCustomerQueueType::updateWaitingQueue()
 {
-    //numinqueue=0;
+    numinqueue=0;
     customerType cust;
 
     cust.setWaitingTime(-1);  
@@ -250,8 +250,8 @@ void waitingCustomerQueueType::updateWaitingQueue()
         if (wTime == -1)
             break;
         cust.incrementWaitingTime();
-       // waittime++;
-       // numinqueue++;
+        waittime++;
+        numinqueue++;
         addQueue(cust);
 	}
 }
@@ -265,4 +265,12 @@ int waitingCustomerQueueType::queueWaitTime(int& waitTime)
         deleteQueue();
     }
     return numQueuedCustomers;
+}
+
+int waitingCustomerQueueType::getWaitTime(){
+    return waittime;
+}
+
+int waitingCustomerQueueType::getNumInQueue(){
+    return numinqueue;
 }

@@ -1,4 +1,5 @@
 /*
+            ://github.com/davebozz/QueueingSimulation.gitustomerType customer;
  * Group: D.J. Bozentka, Johnathan Sekel, Matthew Carnaghi
  * Date: January 26, 2016
  * Class: 3710-01
@@ -237,7 +238,16 @@ public:
       //Function to find total waiting time of customers still in queue
       //precondition: queue contains or does not contain elements
       //postcondition: waittime now has total waiting time of customers in queue as well, AND QUEUE IS NOW DESTROYED
-    
+
+    int getWaitTime();
+      //Function to return the total wait time
+
+    int getNumInQueue();
+      //Function to return the number of customers in the queue
+
+private:
+    int numinqueue;
+    int waittime;    
 };
 
 
