@@ -62,8 +62,9 @@ void runSimulation()
  
     setSimulationParameters(sTime, numOfServers, transTime, tBetweenCArrival);
     
-    srand(time(NULL));
-    int random = 0;
+    srand(7654321);
+    double random = 0;
+    double cutOff = ((double) 1) / tBetweenCArrival;
     int custNum = 0;
 
     serverListType serverList(numOfServers);
@@ -85,8 +86,9 @@ void runSimulation()
         customerQueue.updateWaitingQueue();
 
         //if customer arrives, increment numcustomers and add customer
-        random = rand() % tBetweenCArrival;
-        if (!random) { //New Customer Arrived if 0
+        random = (double)rand() / RAND_MAX;
+        
+        if (random <= cutOff) { //New Customer Arrived if 0
             
             custNum++; //incremented customer by 1
             //Create Customer
@@ -111,16 +113,32 @@ void runSimulation()
     int transactingCustomers = serverList.getNumberOfBusyServers();
     int finishedCustomers = custNum-transactingCustomers-numQueuedCustomers;
     
-    cout    << endl << "Simulation Completed.\n"
-            << "Simulation time: " << sTime << endl
-            << "Number of servers: " << numOfServers << endl
-            << "transaction time: " << transTime << endl
-            << "Time between customer arrivals: " << tBetweenCArrival << endl
-            << "Total Wait Time: "  << waitTime << endl
-            << "Total Customers: "  << custNum << endl
-            << "Average Wait Time: " << (float)waitTime/custNum << endl
-            << "Customers still in queue: " << numQueuedCustomers << endl
-            << "Customers still in transaction: " << transactingCustomers << endl
-            << "Customers who finished receiving service: " << finishedCustomers << endl;
+    cout    << endl
+            << "========= Info ========="
+            << endl
+            << "Simulation Time: " << sTime
+            << endl
+            << "Number Of Servers: " << numOfServers
+            << endl
+            << "Transaction Time: " << transTime
+            << endl
+            << "Time Between Customer Arrivals: " << tBetweenCArrival
+            << endl
+            << "========= Non - Inputs ========="
+            << endl
+            << "Total Wait Time: "  << waitTime
+            << endl
+            << "Total Customers: "  << custNum
+            << endl
+            << "Average Wait Time: " << (float)waitTime/custNum
+            << endl
+            << "Customers still in queue: " << numQueuedCustomers
+            << endl
+            << "Customers still in transaction: " << transactingCustomers
+            << endl
+            << "Customers who finished receiving service: " << finishedCustomers
+            << endl
+            << "============ Fin ============";
             //display total waiting time and average waiting time
+            //More servers than transaction time, no backlog in queue
 }

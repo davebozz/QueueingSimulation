@@ -236,7 +236,7 @@ public:
     int queueWaitTime(int& waitTime);
       //Function to find total waiting time of customers still in queue
       //precondition: queue contains or does not contain elements
-      //postcondition: waittime now has total waiting time of customers in queue as well
+      //postcondition: waittime now has total waiting time of customers in queue as well, AND QUEUE IS NOW DESTROYED
     
 };
 

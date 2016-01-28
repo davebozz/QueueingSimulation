@@ -38,25 +38,21 @@ void customerType::incrementWaitingTime()
 
 void customerType::setWaitingTime(int time)
 {
-    //cout << "See Programming Exercise 17 at the end of this chapter." << endl;
     waitingTime = time;
 }
 
 int customerType::getArrivalTime() const
 {
-    //cout << "See Programming Exercise 17 at the end of this chapter." << endl;
     return arrivalTime;
 }
 
 int customerType::getTransactionTime() const
 {
-    //cout << "See Programming Exercise 17 at the end of this chapter." << endl;
     return transactionTime;
 }
 
 int customerType::getCustomerNumber() const
 {
-    //cout << "See Programming Exercise 17 at the end of this chapter." << endl;
     return customerNumber;
 }
 
@@ -105,38 +101,31 @@ void serverType::decreaseTransactionTime()
 
 int serverType::getRemainingTransactionTime() const
 {
-    //cout << "See Programming Exercise 17 at the end of this chapter." << endl;
-    //TODO: Double Check
     return transactionTime;
 }
 
 void serverType::setCurrentCustomer(customerType cCustomer)
 {
-    //cout << "See Programming Exercise 17 at the end of this chapter." << endl;
     currentCustomer = cCustomer;
 }
 
 int serverType::getCurrentCustomerNumber() const
 {
-    //cout << "See Programming Exercise 17 at the end of this chapter." << endl;
     return currentCustomer.getCustomerNumber();
 }
 
 int serverType::getCurrentCustomerArrivalTime() const
 {
-    //cout << "See Programming Exercise 17 at the end of this chapter." << endl;
     return currentCustomer.getArrivalTime();
 }
 
 int serverType::getCurrentCustomerWaitingTime() const
 {
-    //cout << "See Programming Exercise 17 at the end of this chapter." << endl;
     return currentCustomer.getWaitingTime();
 }
 
 int serverType::getCurrentCustomerTransactionTime() const
 {
-    //cout << "See Programming Exercise 17 at the end of this chapter." << endl;
     return currentCustomer.getTransactionTime();
 }
 
@@ -244,6 +233,7 @@ waitingCustomerQueueType::waitingCustomerQueueType(int size)
 //Now queue full & ready
 void waitingCustomerQueueType::updateWaitingQueue()
 {
+    //numinqueue=0;
     customerType cust;
 
     cust.setWaitingTime(-1);  
@@ -260,6 +250,8 @@ void waitingCustomerQueueType::updateWaitingQueue()
         if (wTime == -1)
             break;
         cust.incrementWaitingTime();
+       // waittime++;
+       // numinqueue++;
         addQueue(cust);
 	}
 }
